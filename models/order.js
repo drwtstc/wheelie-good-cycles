@@ -15,6 +15,18 @@ lineProdSchema.virtual('extPrice').get(function() {
     return this.qty * this.product.price;
 })
 
+const lineSvcSchema = new Schema({
+    qty: { type: Number, default: 1 },
+    item: serviceSchema
+}, {
+    timestamps: true,
+    toJSON: { virtuals: true }
+})
+
+lineSvcSchema.virtual('extPrice').get(function() {
+    return this.qty * this.product.price;
+})
+
 const orderSchema = new Schema({
     name: { type: String, required: true },
     sortOrder: Number
