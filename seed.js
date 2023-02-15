@@ -30,7 +30,7 @@ const Service = require('./models/service');
     {name: 'Flat Tire', emoji:'🚴‍♀️',  element: elements[1], price: 9.95},
   ]);
 
-  console.log(items)
+  console.log(products, services)
 
   process.exit();
 
