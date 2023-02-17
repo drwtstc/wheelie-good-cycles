@@ -35,4 +35,9 @@ https://trello.com/b/UDV74ADR/wheelie-good-cycles
 ### `Visuals`
 ![Alt text](https://i.imgur.com/XUYQf1D.png "Logo")
 
+### `wireframes`
+![Alt text](https://trello.com/1/cards/63e4654fb53f7d227d3fc755/attachments/63e4671e6df2c25c3e229533/download/WGC_Wireframe_(2).jpg "wireframes")
+
+### `ERD`
+
 
