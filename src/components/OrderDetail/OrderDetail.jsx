@@ -1,4 +1,5 @@
 import LineItem from '../LineItem/LineItem';
+import './OrderDetail.css'
 
 export default function OrderDetail({ order, handleChangeQty, handleCheckout }) {
   if (!order) return null;
@@ -20,6 +21,8 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
           :
           <span>NEW ORDER</span>
         }
+      </div>
+      <div>
         <span>{new Date(order.updatedAt).toLocaleDateString()}</span>
       </div>
       <div className="line-item-container flex-ctr-ctr flex-col scroll-y">

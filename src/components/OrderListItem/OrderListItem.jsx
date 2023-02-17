@@ -1,3 +1,4 @@
+import './OrderListItem.css'
 export default function OrderListItem({ order, isSelected, handleSelectOrder }) {
   return (
     <div className={`OrderListItem${isSelected ? ' selected' : ''}`} onClick={() => handleSelectOrder(order)}>

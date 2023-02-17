@@ -1,0 +1,18 @@
+.Logo {
+    height: 18vmin;
+    width: 18vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--red);
+    color: var(--tan-1);
+    font-size: 2vmin;
+    border: .6vmin solid var(--tan-2);
+    background-image: url(https://i.imgur.com/HXZjV3k.jpg);
+    background-size: 187px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}

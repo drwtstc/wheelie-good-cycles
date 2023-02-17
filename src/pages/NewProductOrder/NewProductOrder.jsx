@@ -7,6 +7,7 @@ import SelectionList from '../../components/SelectionList/SelectionList'
 import ElementList from '../../components/ElementList/ElementList'
 import OrderDetail from '../../components/OrderDetail/OrderDetail'
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import Logo from '../../components/Logo/Logo'
 
 export default function NewProductOrder({ user, setUser }) {
     const [selectionItems, setSelectionItems] = useState([]);
@@ -53,17 +54,11 @@ export default function NewProductOrder({ user, setUser }) {
 
 console.log(elementsRef.current)
     return (
-        <main className="NewProductOrder">
-          <h1>order</h1>
-          <aside>
-            <ElementList
-              elements={elementsRef.current}
-              cart={setCart}
-              setActiveEl={setActiveEl}
-            />
-            <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-            <UserLogOut user={user} setUser={setUser} />
-          </aside>
+      <main className="NewProductOrder">
+          <Logo />
+          <h3>Wheelie Good Cycles<br/><br/>New Order</h3>
+          <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
+          <UserLogOut user={user} setUser={setUser} />
           <SelectionList
             selectionItems={selectionItems.filter(product => product.element.name === activeEl)}
             handleAddToOrder={handleAddToOrder}
@@ -72,6 +67,11 @@ console.log(elementsRef.current)
             order={cart}
             handleChangeQty={handleChangeQty}
             handleCheckout={handleCheckout}
+          />
+          <ElementList
+            elements={elementsRef.current}
+            cart={setCart}
+            setActiveEl={setActiveEl}
           />
         </main>
     );

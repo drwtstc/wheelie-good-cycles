@@ -1,3 +1,5 @@
+import './ElementList.css'
+
 export default function ElementList({ elements, activeEl, setActiveEl }) {
   console.log(elements)
     let els = elements.map(el =>
@@ -11,7 +13,7 @@ export default function ElementList({ elements, activeEl, setActiveEl }) {
     );
     return (
       <ul className="ElementList">
-        {els}
+        {/* {els} */}
       </ul>
     );
 }

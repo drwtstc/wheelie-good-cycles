@@ -1,0 +1,39 @@
+.SelectionListItem {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3vmin;
+    padding: 2vmin;
+    color: var(--text-light);
+    background-color: var(--white);
+    border: .1vmin solid var(--tan-3);
+    border-radius: 1vmin;
+    font-size: 4vmin;
+}
+
+.SelectionListItem .brand {
+    height: 8vw;
+    width: 8vw;
+    font-size: 1.39vw;
+    background-color: rgb(203, 203, 211);
+    border: .1vmin solid red;
+    border-radius: 1vmin;
+}
+
+.SelectionListItem .buy {
+    display: flex;
+    flex-direction: column;
+}
+
+.SelectionListItem .buy span {
+    font-size: 1.7vw;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.SelectionListItem .name {
+    font-size: 2vw;
+    text-align: center;
+    color: var(--text-light);
+}

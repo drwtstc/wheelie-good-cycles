@@ -1,4 +1,5 @@
 import SelectionListItem from '../SelectionListItem/SelectionListItem';
+import './SelectionList.css'
 
 export default function SelectionList({ selectionItems, handleAddToOrder }) {
   const products = selectionItems.map(product =>
@@ -9,7 +10,7 @@ export default function SelectionList({ selectionItems, handleAddToOrder }) {
     />
   );
   return (
-    <main className="MenuList">
+    <main className="SelectionList">
       {products}
     </main>
   );

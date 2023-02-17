@@ -38,10 +38,14 @@ export default function OrderHistoryPage({ user, setUser }) {
   return (
     <main className="OrderHistoryPage">
       <aside>
+        <br />
         <Link to="/orders/new" className="button btn-sm">NEW ORDER</Link>
+        <br /><br /><br />
         <UserLogOut user={user} setUser={setUser} />
+        <br /><br />
+        <button onClick={handleCheckToken}>Check When My Login Expires</button>
       </aside>
-      <br /><br /><br /><br />
+      <br /><br />
       <OrderList
         orders={orders}
         activeOrder={activeOrder}
@@ -50,8 +54,6 @@ export default function OrderHistoryPage({ user, setUser }) {
       <OrderDetail
         order={activeOrder}
       />
-      <br /><br /><br /><br />
-    <button onClick={handleCheckToken}>Check When My Login Expires</button>
     </main>
   );
 }
