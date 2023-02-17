@@ -1,5 +1,3 @@
-const product = require('./product');
-
 const Schema = require('mongoose').Schema;
 
 const productSchema = new Schema({

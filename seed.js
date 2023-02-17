@@ -23,14 +23,14 @@ const Service = require('./models/service');
     {name: 'Road Bike', color: 'red', year:'2023', discipline:'Road', brand:'Cannondale', model:'Supersix', department:'Mens', element: elements[0], price: 9499.95},
   ]);
 
-  await Service.deleteMany({});
-  const services = await Service.create([
-    {name: 'Assebmly', emoji: '🚴‍♀️', element: elements[1], price: 149.95},
-    {name: 'Tune Up', emoji: '🚴‍♀️', element: elements[1], price: 74.95},
-    {name: 'Flat Tire', emoji:'🚴‍♀️',  element: elements[1], price: 9.95},
-  ]);
+  // await Service.deleteMany({});
+  // const services = await Service.create([
+  //   {name: 'Assebmly', emoji: '🚴‍♀️', element: elements[1], price: 149.95},
+  //   {name: 'Tune Up', emoji: '🚴‍♀️', element: elements[1], price: 74.95},
+  //   {name: 'Flat Tire', emoji:'🚴‍♀️',  element: elements[1], price: 9.95},
+  // ]);
 
-  console.log(products, services)
+  console.log(products)
 
   process.exit();
 

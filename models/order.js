@@ -1,35 +1,23 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const productSchema = require('./productSchema')
-//const serviceSchema = require('./serviceSchema')
 
 const lineProdSchema = new Schema({
     qty: { type: Number, default: 1 },
-    item: productSchema
+    product: productSchema
 }, {
     timestamps: true,
     toJSON: { virtuals: true }
 });
 
 lineProdSchema.virtual('extPrice').get(function() {
+    console.log(this.product)
     return this.qty * this.product.price;
 })
 
-// const lineSvcSchema = new Schema({
-//     qty: { type: Number, default: 1 },
-//     item: serviceSchema
-// }, {
-//     timestamps: true,
-//     toJSON: { virtuals: true }
-// })
-
-// lineSvcSchema.virtual('extPrice').get(function() {
-//     return this.qty * this.service.price;
-// })
-
 const orderSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User'},
-    lineItems: [lineProdSchema], //lineSvcSchema],
+    lineItems: [lineProdSchema],
     isPaid: { type: Boolean, required: false },
     sortOrder: Number
 }, {
@@ -65,7 +53,7 @@ orderSchema.statics.getCart = function(userId) {
 
 orderSchema.methods.addProdToCart = async function(productId) {
     const cart = this;
-    const lineItem = cart.lineItems.find(lineItem => lineItem.product._id.equals(productId));
+    const lineItem = cart.lineItems.find(lineItem => lineItem.product._id.equals(productId))
     if (lineItem) {
       lineItem.qty += 1;
     } else {

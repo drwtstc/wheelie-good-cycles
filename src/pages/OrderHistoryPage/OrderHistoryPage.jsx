@@ -1,16 +1,57 @@
-import { checkToken } from "../../utilities/users-service"
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import * as ordersAPI from '../../utilities/orders-api';
+import * as usersService from '../../utilities/users-service';
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import OrderList from '../../components/OrderList/OrderList';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
 
-export default function OrderHistoryPage() {
+export default function OrderHistoryPage({ user, setUser }) {
+  /*--- State --- */
+  const [orders, setOrders] = useState([]);
+  const [activeOrder, setActiveOrder] = useState(null);
 
-    async function handleCheckToken(){
-        const expDate = await checkToken()
-        console.log(expDate)    
+  /*--- Side Effects --- */
+  useEffect(function () {
+    // Load previous orders (paid)
+    async function fetchOrderHistory() {
+      const orders = await ordersAPI.getOrderHistory();
+      setOrders(orders);
+      // If no orders, activeOrder will be set to null below
+      setActiveOrder(orders[0] || null);
     }
+    fetchOrderHistory();
+  }, []);
 
-    return(
-        <>
-        <h1>Order History Page</h1>
-        <button onClick={handleCheckToken}>Check When My Login Expires</button>
-        </>
-    )
+  /*--- Event Handlers --- */
+  function handleSelectOrder(order) {
+    setActiveOrder(order);
+  }
+
+  async function handleCheckToken() {
+    // Promise will resolve to a Date object
+    const expDate = await usersService.checkToken();
+    console.log(new Date(expDate));
+  }
+
+  /*--- Rendered UI --- */
+  return (
+    <main className="OrderHistoryPage">
+      <aside>
+        <Link to="/orders/new" className="button btn-sm">NEW ORDER</Link>
+        <UserLogOut user={user} setUser={setUser} />
+      </aside>
+      <br /><br /><br /><br />
+      <OrderList
+        orders={orders}
+        activeOrder={activeOrder}
+        handleSelectOrder={handleSelectOrder}
+      />
+      <OrderDetail
+        order={activeOrder}
+      />
+      <br /><br /><br /><br />
+    <button onClick={handleCheckToken}>Check When My Login Expires</button>
+    </main>
+  );
 }
